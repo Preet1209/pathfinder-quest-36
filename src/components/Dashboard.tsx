@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
 import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield } from "lucide-react";
+import { Roadmap } from "./dashboard/Roadmap";
 
 const getCareerDNA = (answers: ReturnType<typeof useQuiz>["answers"]) => {
   const traits: string[] = [];
@@ -45,19 +46,45 @@ export const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background px-4 py-8 relative overflow-hidden">
-      {/* Background effects */}
+      {/* Animated background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[10%] left-[-5%] w-[500px] h-[500px] rounded-full opacity-10 blur-[120px]" style={{ background: "hsl(340 82% 52%)" }} />
-        <div className="absolute bottom-[10%] right-[-5%] w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]" style={{ background: "hsl(265 60% 50%)" }} />
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.15, 0.08] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[5%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[140px]"
+          style={{ background: "hsl(340 82% 52%)" }}
+        />
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.12, 0.06] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[5%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px]"
+          style={{ background: "hsl(265 60% 50%)" }}
+        />
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.04, 0.08, 0.04] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+          className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full blur-[100px]"
+          style={{ background: "hsl(230 60% 40%)" }}
+        />
       </div>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
+        style={{ backgroundImage: "linear-gradient(hsl(220 20% 92%) 1px, transparent 1px), linear-gradient(90deg, hsl(220 20% 92%) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-4" style={{ background: "hsl(230 22% 11% / 0.8)" }}>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-4"
+            style={{ background: "linear-gradient(135deg, hsl(230 22% 11% / 0.8), hsl(340 82% 52% / 0.08))" }}
+          >
             <Shield className="w-3 h-3 text-primary" />
             <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">Analysis Complete</span>
-          </div>
+          </motion.div>
           <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-2">
             You're a <span className="text-gradient">{archetype}</span>
           </h1>
@@ -67,8 +94,10 @@ export const Dashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Career DNA */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-colors">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(265 60% 50% / 0.05), transparent 70%)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
                 <Brain className="w-4 h-4 text-purple" />
@@ -76,19 +105,30 @@ export const Dashboard = () => {
               <h3 className="font-display font-bold text-foreground">Career DNA</h3>
             </div>
             <div className="flex flex-wrap gap-2 mb-4">
-              {dna.map((t) => (
-                <span key={t} className="px-3 py-1 bg-muted rounded-full text-xs font-medium text-foreground border border-border">{t}</span>
+              {dna.map((t, i) => (
+                <motion.span
+                  key={t}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="px-3 py-1.5 rounded-full text-xs font-medium text-foreground border border-border"
+                  style={{ background: "linear-gradient(135deg, hsl(230 22% 13%), hsl(265 30% 18%))" }}
+                >
+                  {t}
+                </motion.span>
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
-              Top values: <span className="text-foreground">{answers.valuesRanking.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(", ")}</span>
+              Top values: <span className="text-foreground font-medium">{answers.valuesRanking.map(v => v.charAt(0).toUpperCase() + v.slice(1)).join(", ")}</span>
             </p>
           </motion.div>
 
           {/* Skill Gap */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-colors">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)]">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(340 82% 52% / 0.05), transparent 70%)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
                 <Target className="w-4 h-4 text-crimson" />
@@ -107,13 +147,13 @@ export const Dashboard = () => {
                       <span className="text-xs text-foreground">{d}</span>
                       <span className="text-xs text-muted-foreground">{pct}%</span>
                     </div>
-                    <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                    <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                       <motion.div
                         className="h-full rounded-full"
                         style={{ background: "var(--gradient-crimson)" }}
                         initial={{ width: 0 }}
                         animate={{ width: `${pct}%` }}
-                        transition={{ delay: 0.5 + i * 0.15, duration: 0.8 }}
+                        transition={{ delay: 0.5 + i * 0.15, duration: 0.8, ease: "easeOut" }}
                       />
                     </div>
                   </div>
@@ -127,8 +167,10 @@ export const Dashboard = () => {
 
           {/* Burnout Tracker */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-colors">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)]">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(340 82% 52% / 0.05), transparent 70%)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
                 <Flame className="w-4 h-4 text-crimson" />
@@ -136,7 +178,14 @@ export const Dashboard = () => {
               <h3 className="font-display font-bold text-foreground">Burnout Tracker</h3>
             </div>
             <div className="flex items-baseline gap-2 mb-4">
-              <span className={`text-3xl font-display font-bold ${burnout.color}`}>{burnout.level}</span>
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.5, type: "spring" }}
+                className={`text-3xl font-display font-bold ${burnout.color}`}
+              >
+                {burnout.level}
+              </motion.span>
               <span className="text-xs text-muted-foreground">risk</span>
             </div>
             <div className="space-y-2.5 mb-3">
@@ -146,9 +195,10 @@ export const Dashboard = () => {
                     <span className="text-xs text-muted-foreground capitalize">{k}</span>
                     <span className="text-xs text-foreground font-medium">{answers.stressLevels[k]}%</span>
                   </div>
-                  <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
                     <motion.div
-                      className="h-full rounded-full bg-primary"
+                      className="h-full rounded-full"
+                      style={{ background: k === "excitement" ? "var(--gradient-crimson)" : "hsl(var(--primary))" }}
                       initial={{ width: 0 }}
                       animate={{ width: `${answers.stressLevels[k]}%` }}
                       transition={{ delay: 0.6, duration: 0.6 }}
@@ -162,7 +212,7 @@ export const Dashboard = () => {
 
           {/* Hybrid Careers */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-            className="card-glass rounded-2xl p-6 md:col-span-2 relative overflow-hidden hover:border-primary/30 transition-colors">
+            className="card-glass rounded-2xl p-6 md:col-span-2 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
@@ -177,16 +227,17 @@ export const Dashboard = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6 + i * 0.1 }}
-                  className="flex items-center justify-between p-3.5 rounded-xl bg-muted/40 hover:bg-muted/70 transition-all cursor-pointer group border border-transparent hover:border-border"
+                  whileHover={{ scale: 1.02 }}
+                  className="flex items-center justify-between p-4 rounded-xl bg-muted/30 hover:bg-muted/50 transition-all cursor-pointer group/card border border-transparent hover:border-border"
                 >
                   <div>
                     <p className="text-sm font-medium text-foreground">{c.title}</p>
                     <div className="flex items-center gap-1.5 mt-1">
                       <TrendingUp className="w-3 h-3 text-primary" />
-                      <span className="text-xs text-primary font-bold">{c.match}% match</span>
+                      <span className="text-xs font-bold" style={{ background: "var(--gradient-crimson)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{c.match}% match</span>
                     </div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 transition-all" />
+                  <ChevronRight className="w-4 h-4 text-muted-foreground group-hover/card:text-foreground group-hover/card:translate-x-0.5 transition-all" />
                 </motion.div>
               ))}
             </div>
@@ -194,7 +245,7 @@ export const Dashboard = () => {
 
           {/* Decision Engine */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden hover:border-primary/30 transition-colors">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)]">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
@@ -218,6 +269,9 @@ export const Dashboard = () => {
               </li>
             </ul>
           </motion.div>
+
+          {/* Roadmap - full width */}
+          <Roadmap />
         </div>
       </div>
     </div>
