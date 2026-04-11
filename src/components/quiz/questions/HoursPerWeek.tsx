@@ -16,10 +16,10 @@ export const HoursPerWeek = () => {
         <button
           key={o.value}
           onClick={() => updateAnswer("hoursPerWeek", o.value)}
-          className={`p-4 rounded-xl border-2 text-center transition-all ${
+          className={`p-4 rounded-xl border text-center transition-all duration-200 ${
             answers.hoursPerWeek === o.value
-              ? "border-accent bg-amber-glow"
-              : "border-border hover:border-muted-foreground"
+              ? "border-primary bg-primary/10 border-glow"
+              : "border-border hover:border-muted-foreground bg-muted/30"
           }`}
         >
           <p className="font-display font-bold text-lg text-foreground">{o.label}</p>

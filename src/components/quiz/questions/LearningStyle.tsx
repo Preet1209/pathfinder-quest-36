@@ -16,10 +16,10 @@ export const LearningStyle = () => {
         <button
           key={s.value}
           onClick={() => updateAnswer("learningStyle", s.value)}
-          className={`p-4 rounded-xl border-2 text-left transition-all ${
+          className={`p-4 rounded-xl border text-left transition-all duration-200 ${
             answers.learningStyle === s.value
-              ? "border-accent bg-amber-glow"
-              : "border-border hover:border-muted-foreground"
+              ? "border-primary bg-primary/10 border-glow"
+              : "border-border hover:border-muted-foreground bg-muted/30"
           }`}
         >
           <p className="font-display font-semibold text-foreground">{s.label}</p>
