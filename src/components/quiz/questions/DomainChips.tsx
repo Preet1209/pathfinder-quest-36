@@ -26,11 +26,12 @@ export const DomainChips = () => {
           <button
             key={d}
             onClick={() => toggle(d)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               answers.domains.includes(d)
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground hover:bg-border"
+                ? "text-primary-foreground border-glow"
+                : "bg-muted/50 text-muted-foreground hover:bg-muted border border-transparent"
             }`}
+            style={answers.domains.includes(d) ? { background: "var(--gradient-crimson)" } : {}}
           >
             {d}
           </button>

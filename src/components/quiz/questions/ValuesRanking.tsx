@@ -37,14 +37,14 @@ export const ValuesRanking = () => {
             <button
               key={v.id}
               onClick={() => toggle(v.id)}
-              className={`flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all ${
+              className={`flex items-center gap-3 p-4 rounded-xl border text-left transition-all duration-200 ${
                 idx >= 0
-                  ? "border-accent bg-amber-glow"
-                  : "border-border hover:border-muted-foreground"
+                  ? "border-primary bg-primary/10 border-glow"
+                  : "border-border hover:border-muted-foreground bg-muted/30"
               }`}
             >
               {idx >= 0 && (
-                <span className="w-7 h-7 rounded-full bg-accent text-accent-foreground flex items-center justify-center text-sm font-bold font-display">
+                <span className="w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold font-display text-primary-foreground shrink-0" style={{ background: "var(--gradient-crimson)" }}>
                   {idx + 1}
                 </span>
               )}

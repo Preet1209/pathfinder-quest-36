@@ -17,15 +17,15 @@ export const ABChoice = ({ field, optionA, optionB }: Props) => {
         <button
           key={opt.value}
           onClick={() => updateAnswer(field, opt.value as never)}
-          className={`p-6 rounded-xl border-2 text-center transition-all ${
+          className={`p-6 rounded-2xl border text-center transition-all duration-300 group ${
             current === opt.value
-              ? "border-accent bg-amber-glow"
-              : "border-border hover:border-muted-foreground"
+              ? "border-primary bg-primary/10 border-glow"
+              : "border-border hover:border-muted-foreground bg-muted/30"
           }`}
         >
-          <span className="text-4xl block mb-3">{opt.emoji}</span>
+          <span className="text-5xl block mb-4 group-hover:scale-110 transition-transform duration-300">{opt.emoji}</span>
           <p className="font-display font-bold text-lg text-foreground">{opt.label}</p>
-          <p className="text-xs text-muted-foreground mt-2">{opt.desc}</p>
+          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{opt.desc}</p>
         </button>
       ))}
     </div>
