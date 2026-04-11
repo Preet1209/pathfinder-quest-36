@@ -1,16 +1,22 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import { QuizProvider, useQuiz } from "@/context/QuizContext";
+import { LandingPage } from "@/components/LandingPage";
+import { OnboardingQuiz } from "@/components/quiz/OnboardingQuiz";
+import { Dashboard } from "@/components/Dashboard";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
+const IndexContent = () => {
+  const [started, setStarted] = useState(false);
+  const { isComplete } = useQuiz();
+
+  if (isComplete) return <Dashboard />;
+  if (started) return <OnboardingQuiz />;
+  return <LandingPage onStart={() => setStarted(true)} />;
 };
 
-const Index = PlaceholderIndex;
+const Index = () => (
+  <QuizProvider>
+    <IndexContent />
+  </QuizProvider>
+);
 
 export default Index;
