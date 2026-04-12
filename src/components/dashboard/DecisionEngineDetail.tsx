@@ -13,7 +13,36 @@ interface Props {
 export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Props) => {
   const { answers } = useQuiz();
 
+  const ageLabel = { "under-18": "Under 18", "18-24": "18–24", "25-34": "25–34", "35-44": "35–44", "45+": "45+" }[answers.ageRange] || answers.ageRange;
+  const qualLabel = { "high-school": "High School", "diploma": "Diploma", "bachelors": "Bachelor's", "masters": "Master's", "phd": "PhD", "self-taught": "Self-Taught" }[answers.qualification] || answers.qualification;
+
   const factors = [
+    {
+      factor: "Age & Career Stage",
+      signal: `${ageLabel} • ${answers.journeyStage || "Exploring"}`,
+      impact: answers.ageRange === "under-18" || answers.ageRange === "18-24"
+        ? "You have maximum time flexibility. Explore broadly now, specialize later. Internships and side projects are your best investment."
+        : answers.ageRange === "25-34"
+        ? "Prime career-building years. Strategic pivots are still low-risk, and your experience adds credibility to new directions."
+        : answers.ageRange === "35-44"
+        ? "Your experience is a major asset. Focus on leveraging existing expertise while branching into adjacent areas."
+        : "Deep experience commands premium value. Advisory, consulting, and mentorship roles maximize your knowledge capital.",
+      weight: 80,
+      positive: true,
+    },
+    {
+      factor: "Education & Qualification",
+      signal: qualLabel,
+      impact: answers.qualification === "phd" || answers.qualification === "masters"
+        ? "Your advanced education opens doors to research, leadership, and specialized roles that require deep academic credentials."
+        : answers.qualification === "bachelors"
+        ? "A solid academic foundation. Supplement with certifications and projects to stand out in competitive fields."
+        : answers.qualification === "self-taught"
+        ? "Your non-traditional path shows initiative. Portfolio and demonstrated skills matter more than credentials for you."
+        : "Practical skills and certifications can accelerate your career. Consider targeted courses to fill specific gaps.",
+      weight: 75,
+      positive: true,
+    },
     {
       factor: "Work Style Alignment",
       signal: answers.stabilityVsFlexibility === "stability" ? "Prefers structure" : "Prefers flexibility",
