@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const sections = [
-  { label: "Quick Setup", time: "1:20", questions: 3 },
+  { label: "Quick Setup", time: "2:00", questions: 5 },
   { label: "Values & Personality", time: "1:45", questions: 4 },
   { label: "Burnout & Learning", time: "1:55", questions: 3 },
 ];
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const SectionProgress = ({ currentSection, totalAnswered }: Props) => {
-  const progress = (totalAnswered / 10) * 100;
+  const progress = (totalAnswered / 12) * 100;
 
   return (
     <div className="w-full max-w-2xl mx-auto mb-8">
