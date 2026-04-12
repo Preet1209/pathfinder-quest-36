@@ -82,6 +82,23 @@ export const Dashboard = () => {
           <p className="text-muted-foreground max-w-lg mx-auto font-body">
             Click any card below to explore your personalized insights in detail.
           </p>
+          <div className="flex items-center justify-center gap-3 mt-3 flex-wrap">
+            {answers.ageRange && (
+              <span className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/20 text-muted-foreground">
+                Age: {{ "under-18": "<18", "18-24": "18–24", "25-34": "25–34", "35-44": "35–44", "45+": "45+" }[answers.ageRange] || answers.ageRange}
+              </span>
+            )}
+            {answers.qualification && (
+              <span className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/20 text-muted-foreground">
+                {{ "high-school": "High School", "diploma": "Diploma", "bachelors": "Bachelor's", "masters": "Master's", "phd": "PhD", "self-taught": "Self-Taught" }[answers.qualification] || answers.qualification}
+              </span>
+            )}
+            {answers.journeyStage && (
+              <span className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/20 text-muted-foreground">
+                {answers.journeyStage}
+              </span>
+            )}
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
