@@ -1,4 +1,6 @@
 export interface QuizAnswers {
+  ageRange: string;
+  qualification: string;
   journeyStage: string;
   hoursPerWeek: string;
   domains: string[];
@@ -12,6 +14,8 @@ export interface QuizAnswers {
 }
 
 export const defaultAnswers: QuizAnswers = {
+  ageRange: "",
+  qualification: "",
   journeyStage: "",
   hoursPerWeek: "",
   domains: [],
