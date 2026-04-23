@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
-import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield, Linkedin, Github } from "lucide-react";
+import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield, Linkedin, Github, Puzzle } from "lucide-react";
 import { Roadmap } from "./dashboard/Roadmap";
 import { CareerDNADetail } from "./dashboard/CareerDNADetail";
 import { BurnoutDetail } from "./dashboard/BurnoutDetail";
 import { DecisionEngineDetail } from "./dashboard/DecisionEngineDetail";
+import { computeLogicProfile } from "@/lib/logic";
 
 const getCareerDNA = (answers: ReturnType<typeof useQuiz>["answers"]) => {
   const traits: string[] = [];
@@ -40,6 +41,7 @@ export const Dashboard = () => {
   const dna = getCareerDNA(answers);
   const archetype = getArchetype(answers);
   const burnout = getBurnoutRisk(answers.stressLevels);
+  const logic = computeLogicProfile(answers);
 
   const [dnaOpen, setDnaOpen] = useState(false);
   const [burnoutOpen, setBurnoutOpen] = useState(false);
