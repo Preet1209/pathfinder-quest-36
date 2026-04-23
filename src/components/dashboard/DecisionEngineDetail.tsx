@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
 import { Zap, CheckCircle2, XCircle, ArrowRight, Scale, Lightbulb } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { computeLogicProfile } from "@/lib/logic";
 
 interface Props {
   open: boolean;
@@ -12,6 +13,7 @@ interface Props {
 
 export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Props) => {
   const { answers } = useQuiz();
+  const logic = computeLogicProfile(answers);
 
   const ageLabel = { "under-18": "Under 18", "18-24": "18–24", "25-34": "25–34", "35-44": "35–44", "45+": "45+" }[answers.ageRange] || answers.ageRange;
   const qualLabel = { "high-school": "High School", "diploma": "Diploma", "bachelors": "Bachelor's", "masters": "Master's", "phd": "PhD", "self-taught": "Self-Taught" }[answers.qualification] || answers.qualification;
@@ -117,6 +119,19 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
         : "Without profile data, we rely fully on your self-reported answers. Add profiles later to refine the analysis.",
       weight: hasLinkedin || hasGithub ? 60 : 25,
       positive: hasLinkedin || hasGithub,
+    },
+    {
+      factor: "Logical Reasoning (Cognition)",
+      signal: `${logic.band} • ${logic.score}/100 • ${Math.round(logic.accuracy * 100)}% accuracy, ${Math.round(logic.speed * 100)}% speed`,
+      impact: logic.band === "Sharp"
+        ? "High-speed accurate reasoning lifts the priority of analytical, technical, and quantitative roles in your recommendations."
+        : logic.band === "Solid"
+        ? "Reliable reasoning broadens your fit — analytical and judgment-heavy roles both score well."
+        : logic.band === "Developing"
+        ? "We've reduced the weight of pure-analysis roles and favor recommendations where domain knowledge or interpersonal strengths dominate."
+        : "Cognition section incomplete — recommendations rely on self-reported signals only.",
+      weight: logic.band === "Untested" ? 20 : 70,
+      positive: logic.band !== "Developing",
     },
   ];
 

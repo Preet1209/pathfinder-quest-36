@@ -4,6 +4,7 @@ const sections = [
   { label: "Quick Setup", time: "2:00", questions: 5 },
   { label: "Values & Personality", time: "1:45", questions: 4 },
   { label: "Burnout & Learning", time: "1:55", questions: 3 },
+  { label: "Cognition", time: "0:45", questions: 2 },
   { label: "Profiles", time: "0:30", questions: 1 },
 ];
 
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const SectionProgress = ({ currentSection, totalAnswered }: Props) => {
-  const progress = (totalAnswered / 13) * 100;
+  const progress = (totalAnswered / 15) * 100;
 
   return (
     <div className="w-full max-w-2xl mx-auto mb-8">

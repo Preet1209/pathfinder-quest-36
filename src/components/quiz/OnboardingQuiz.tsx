@@ -12,6 +12,8 @@ import { StressSliders } from "./questions/StressSliders";
 import { LearningStyle } from "./questions/LearningStyle";
 import { DesiredSkill } from "./questions/DesiredSkill";
 import { Profiles } from "./questions/Profiles";
+import { LogicSequence } from "./questions/LogicSequence";
+import { PatternPuzzle } from "./questions/PatternPuzzle";
 
 const questions = [
   // Section 0 — Quick Setup
@@ -29,8 +31,11 @@ const questions = [
   { section: 2, title: "How are you feeling right now?", subtitle: "These baselines help us track and predict burnout.", field: "stressLevels" },
   { section: 2, title: "How do you learn best?", subtitle: "We'll customize your skill roadmap format.", field: "learningStyle" },
   { section: 2, title: "What skill do you most want to develop?", subtitle: "Tell us in your own words — be as specific or broad as you like.", field: "desiredSkill" },
-  // Section 3 — Profiles (Optional)
-  { section: 3, title: "Share your profiles (optional)", subtitle: "LinkedIn & GitHub help us calibrate your career fit and skill gaps with real signals.", field: "profiles" },
+  // Section 3 — Cognition (logical reasoning, timed)
+  { section: 3, title: "Find the next number in the sequence", subtitle: "Both your answer and how quickly you respond shape your logical-reasoning signal.", field: "sequenceAnswer" },
+  { section: 3, title: "Spot the next shape in the pattern", subtitle: "A quick pattern-recognition puzzle — go with your instinct.", field: "puzzleAnswer" },
+  // Section 4 — Profiles (Optional)
+  { section: 4, title: "Share your profiles (optional)", subtitle: "LinkedIn & GitHub help us calibrate your career fit and skill gaps with real signals.", field: "profiles" },
 ];
 
 const TOTAL = questions.length;
@@ -55,7 +60,9 @@ export const OnboardingQuiz = () => {
       case 9: return true;
       case 10: return !!answers.learningStyle;
       case 11: return answers.desiredSkill.trim().length >= 3;
-      case 12: {
+      case 12: return !!answers.sequenceAnswer;
+      case 13: return !!answers.puzzleAnswer;
+      case 14: {
         const validUrl = (url: string, host: string) => {
           if (!url.trim()) return true;
           try {
@@ -118,7 +125,9 @@ export const OnboardingQuiz = () => {
       case 9: return <StressSliders />;
       case 10: return <LearningStyle />;
       case 11: return <DesiredSkill />;
-      case 12: return <Profiles />;
+      case 12: return <LogicSequence />;
+      case 13: return <PatternPuzzle />;
+      case 14: return <Profiles />;
       default: return null;
     }
   };
