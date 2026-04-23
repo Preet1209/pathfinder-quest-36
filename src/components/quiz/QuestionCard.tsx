@@ -32,7 +32,7 @@ export const QuestionCard = ({ questionNumber, title, subtitle, children, onNext
               {questionNumber}
             </span>
             <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">
-              of 13
+              of 15
             </span>
           </div>
           <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mb-1">{title}</h2>
