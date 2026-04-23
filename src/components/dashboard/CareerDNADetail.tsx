@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
-import { Brain, Dna, Compass, Heart, Shield, Lightbulb } from "lucide-react";
+import { Brain, Dna, Compass, Heart, Shield, Lightbulb, Linkedin, Github } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 const getTraitDetail = (trait: string) => {
@@ -205,6 +205,33 @@ export const CareerDNADetail = ({ open, onOpenChange, dna, archetype }: Props) =
           <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 font-display">Others like you</p>
           <p className="text-sm text-foreground/80">{archetypeInfo.famousExamples.join(" • ")}</p>
         </div>
+
+        {/* Profile Signals */}
+        {(answers.linkedinUrl || answers.githubUrl) && (
+          <div className="p-4 rounded-xl border border-secondary/30"
+               style={{ background: "linear-gradient(135deg, hsl(265 60% 50% / 0.08), hsl(230 22% 13%))" }}>
+            <p className="text-xs uppercase tracking-wider text-secondary mb-2 font-display">Linked Profiles Enriching This Profile</p>
+            <div className="flex flex-wrap gap-2">
+              {answers.linkedinUrl && (
+                <a href={answers.linkedinUrl.startsWith("http") ? answers.linkedinUrl : `https://${answers.linkedinUrl}`}
+                   target="_blank" rel="noreferrer noopener"
+                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-secondary/15 text-secondary border border-secondary/30 hover:bg-secondary/25 transition">
+                  <Linkedin className="w-3 h-3" /> LinkedIn
+                </a>
+              )}
+              {answers.githubUrl && (
+                <a href={answers.githubUrl.startsWith("http") ? answers.githubUrl : `https://${answers.githubUrl}`}
+                   target="_blank" rel="noreferrer noopener"
+                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-muted/30 text-foreground border border-border hover:bg-muted/50 transition">
+                  <Github className="w-3 h-3" /> GitHub
+                </a>
+              )}
+            </div>
+            <p className="text-[11px] text-muted-foreground mt-2">
+              These profiles add real-world weight to your archetype — your professional trajectory and builder activity are factored into recommendations.
+            </p>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );

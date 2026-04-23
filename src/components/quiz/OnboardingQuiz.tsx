@@ -11,6 +11,7 @@ import { ABChoice } from "./questions/ABChoice";
 import { StressSliders } from "./questions/StressSliders";
 import { LearningStyle } from "./questions/LearningStyle";
 import { DesiredSkill } from "./questions/DesiredSkill";
+import { Profiles } from "./questions/Profiles";
 
 const questions = [
   // Section 0 — Quick Setup
@@ -28,6 +29,8 @@ const questions = [
   { section: 2, title: "How are you feeling right now?", subtitle: "These baselines help us track and predict burnout.", field: "stressLevels" },
   { section: 2, title: "How do you learn best?", subtitle: "We'll customize your skill roadmap format.", field: "learningStyle" },
   { section: 2, title: "What skill do you most want to develop?", subtitle: "Tell us in your own words — be as specific or broad as you like.", field: "desiredSkill" },
+  // Section 3 — Profiles (Optional)
+  { section: 3, title: "Share your profiles (optional)", subtitle: "LinkedIn & GitHub help us calibrate your career fit and skill gaps with real signals.", field: "profiles" },
 ];
 
 const TOTAL = questions.length;
@@ -52,6 +55,16 @@ export const OnboardingQuiz = () => {
       case 9: return true;
       case 10: return !!answers.learningStyle;
       case 11: return answers.desiredSkill.trim().length >= 3;
+      case 12: {
+        const validUrl = (url: string, host: string) => {
+          if (!url.trim()) return true;
+          try {
+            const u = new URL(url.startsWith("http") ? url : `https://${url}`);
+            return u.hostname.includes(host);
+          } catch { return false; }
+        };
+        return validUrl(answers.linkedinUrl, "linkedin.com") && validUrl(answers.githubUrl, "github.com");
+      }
       default: return false;
     }
   };
@@ -105,6 +118,7 @@ export const OnboardingQuiz = () => {
       case 9: return <StressSliders />;
       case 10: return <LearningStyle />;
       case 11: return <DesiredSkill />;
+      case 12: return <Profiles />;
       default: return null;
     }
   };

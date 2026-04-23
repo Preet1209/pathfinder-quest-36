@@ -4,6 +4,7 @@ const sections = [
   { label: "Quick Setup", time: "2:00", questions: 5 },
   { label: "Values & Personality", time: "1:45", questions: 4 },
   { label: "Burnout & Learning", time: "1:55", questions: 3 },
+  { label: "Profiles", time: "0:30", questions: 1 },
 ];
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 }
 
 export const SectionProgress = ({ currentSection, totalAnswered }: Props) => {
-  const progress = (totalAnswered / 12) * 100;
+  const progress = (totalAnswered / 13) * 100;
 
   return (
     <div className="w-full max-w-2xl mx-auto mb-8">
@@ -37,7 +38,7 @@ export const SectionProgress = ({ currentSection, totalAnswered }: Props) => {
               </p>
               <p className="text-[10px] text-muted-foreground">{s.time}</p>
             </div>
-            {i < 2 && (
+            {i < sections.length - 1 && (
               <div className={`hidden sm:block w-8 h-px mx-1 ${i < currentSection ? "bg-primary" : "bg-border"}`} />
             )}
           </div>
