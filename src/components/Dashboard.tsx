@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
-import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield } from "lucide-react";
+import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield, Linkedin, Github } from "lucide-react";
 import { Roadmap } from "./dashboard/Roadmap";
 import { CareerDNADetail } from "./dashboard/CareerDNADetail";
 import { BurnoutDetail } from "./dashboard/BurnoutDetail";
@@ -97,6 +97,20 @@ export const Dashboard = () => {
               <span className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/20 text-muted-foreground">
                 {answers.journeyStage}
               </span>
+            )}
+            {answers.linkedinUrl && (
+              <a href={answers.linkedinUrl.startsWith("http") ? answers.linkedinUrl : `https://${answers.linkedinUrl}`}
+                 target="_blank" rel="noreferrer noopener"
+                 className="px-3 py-1 rounded-full text-xs font-medium border border-secondary/40 bg-secondary/10 text-secondary hover:bg-secondary/20 transition-colors inline-flex items-center gap-1.5">
+                <Linkedin className="w-3 h-3" /> LinkedIn linked
+              </a>
+            )}
+            {answers.githubUrl && (
+              <a href={answers.githubUrl.startsWith("http") ? answers.githubUrl : `https://${answers.githubUrl}`}
+                 target="_blank" rel="noreferrer noopener"
+                 className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/30 text-foreground hover:bg-muted/50 transition-colors inline-flex items-center gap-1.5">
+                <Github className="w-3 h-3" /> GitHub linked
+              </a>
             )}
           </div>
         </motion.div>

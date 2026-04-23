@@ -16,6 +16,16 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
   const ageLabel = { "under-18": "Under 18", "18-24": "18–24", "25-34": "25–34", "35-44": "35–44", "45+": "45+" }[answers.ageRange] || answers.ageRange;
   const qualLabel = { "high-school": "High School", "diploma": "Diploma", "bachelors": "Bachelor's", "masters": "Master's", "phd": "PhD", "self-taught": "Self-Taught" }[answers.qualification] || answers.qualification;
 
+  const hasLinkedin = !!answers.linkedinUrl?.trim();
+  const hasGithub = !!answers.githubUrl?.trim();
+  const profileSignal = hasLinkedin && hasGithub
+    ? "Strong external signal — both LinkedIn and GitHub linked"
+    : hasLinkedin
+    ? "LinkedIn linked — professional history weighted in"
+    : hasGithub
+    ? "GitHub linked — technical/builder signal weighted in"
+    : "No external profiles linked — using quiz-only signals";
+
   const factors = [
     {
       factor: "Age & Career Stage",
@@ -94,6 +104,19 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
         : "With limited hours, focus on adjacent skills that build on existing strengths rather than complete pivots.",
       weight: 70,
       positive: true,
+    },
+    {
+      factor: "Profile Signals (LinkedIn / GitHub)",
+      signal: profileSignal,
+      impact: hasLinkedin && hasGithub
+        ? "Dual signals confirm both your professional trajectory and hands-on building. Recommendations lean toward hybrid technical-leadership roles where both matter."
+        : hasLinkedin
+        ? "Your LinkedIn anchors recommendations to industries adjacent to your stated experience — pivots stay realistic and credible."
+        : hasGithub
+        ? "Your GitHub activity boosts confidence in technical recommendations — engineering, open-source, and builder-led careers rank higher."
+        : "Without profile data, we rely fully on your self-reported answers. Add profiles later to refine the analysis.",
+      weight: hasLinkedin || hasGithub ? 60 : 25,
+      positive: hasLinkedin || hasGithub,
     },
   ];
 
