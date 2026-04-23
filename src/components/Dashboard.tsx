@@ -270,6 +270,52 @@ export const Dashboard = () => {
           {/* Roadmap */}
           <Roadmap />
         </div>
+
+        {/* Logical Reasoning */}
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
+          className="card-glass rounded-2xl p-6 mt-5 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
+          <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
+              <Puzzle className="w-4 h-4 text-purple" />
+            </div>
+            <h3 className="font-display font-bold text-foreground">Logical Reasoning</h3>
+            <span className="ml-auto text-[10px] uppercase tracking-wider font-display px-2 py-0.5 rounded-full border border-border text-muted-foreground">
+              {logic.band}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div className="p-3 rounded-xl bg-muted/15 border border-border">
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-display">Composite Score</p>
+              <p className="text-2xl font-display font-bold text-gradient mt-1">{logic.score}<span className="text-xs text-muted-foreground font-normal">/100</span></p>
+              <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden mt-2">
+                <motion.div className="h-full rounded-full" style={{ background: "var(--gradient-crimson)" }}
+                  initial={{ width: 0 }} animate={{ width: `${logic.score}%` }} transition={{ delay: 0.6, duration: 0.8 }} />
+              </div>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/15 border border-border">
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-display">Sequence Question</p>
+              <p className="text-sm font-display font-semibold mt-1 text-foreground">
+                {answers.sequenceAnswer ? (logic.sequenceCorrect ? "✓ Correct" : "✗ Incorrect") : "Not answered"}
+              </p>
+              <p className="text-[11px] text-muted-foreground mt-0.5">
+                {answers.sequenceAnswer ? `${logic.sequenceSeconds.toFixed(1)}s to answer` : "—"}
+              </p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/15 border border-border">
+              <p className="text-[10px] uppercase tracking-wider text-muted-foreground font-display">Pattern Puzzle</p>
+              <p className="text-sm font-display font-semibold mt-1 text-foreground">
+                {answers.puzzleAnswer ? (logic.puzzleCorrect ? "✓ Correct" : "✗ Incorrect") : "Not answered"}
+              </p>
+              <p className="text-[11px] text-muted-foreground mt-0.5">
+                {answers.puzzleAnswer ? `${logic.puzzleSeconds.toFixed(1)}s to answer` : "—"}
+              </p>
+            </div>
+          </div>
+
+          <p className="text-xs text-foreground/70">{logic.insight}</p>
+        </motion.div>
       </div>
 
       {/* Detail Modals */}
