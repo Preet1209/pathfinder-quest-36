@@ -10,10 +10,6 @@ interface QuizContextType {
   setCurrentQuestion: (q: number) => void;
   isComplete: boolean;
   setIsComplete: (v: boolean) => void;
-  puzzlesPrompted: boolean;
-  setPuzzlesPrompted: (v: boolean) => void;
-  puzzlesDone: boolean;
-  setPuzzlesDone: (v: boolean) => void;
 }
 
 const QuizContext = createContext<QuizContextType | null>(null);
@@ -29,8 +25,6 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   const [currentSection, setCurrentSection] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
-  const [puzzlesPrompted, setPuzzlesPrompted] = useState(false);
-  const [puzzlesDone, setPuzzlesDone] = useState(false);
 
   const updateAnswer = <K extends keyof QuizAnswers>(key: K, value: QuizAnswers[K]) => {
     setAnswers((prev) => ({ ...prev, [key]: value }));
@@ -38,7 +32,7 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <QuizContext.Provider
-      value={{ answers, updateAnswer, currentSection, setCurrentSection, currentQuestion, setCurrentQuestion, isComplete, setIsComplete, puzzlesPrompted, setPuzzlesPrompted, puzzlesDone, setPuzzlesDone }}
+      value={{ answers, updateAnswer, currentSection, setCurrentSection, currentQuestion, setCurrentQuestion, isComplete, setIsComplete }}
     >
       {children}
     </QuizContext.Provider>

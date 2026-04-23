@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useQuiz } from "@/context/QuizContext";
-import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield, Linkedin, Github, Puzzle } from "lucide-react";
+import { Target, Brain, Zap, Sparkles, Flame, TrendingUp, ChevronRight, Shield, Linkedin, Github } from "lucide-react";
 import { Roadmap } from "./dashboard/Roadmap";
 import { CareerDNADetail } from "./dashboard/CareerDNADetail";
 import { BurnoutDetail } from "./dashboard/BurnoutDetail";
@@ -111,11 +111,6 @@ export const Dashboard = () => {
                  className="px-3 py-1 rounded-full text-xs font-medium border border-border bg-muted/30 text-foreground hover:bg-muted/50 transition-colors inline-flex items-center gap-1.5">
                 <Github className="w-3 h-3" /> GitHub linked
               </a>
-            )}
-            {answers.puzzleTradeoff.length === 2 && (
-              <span className="px-3 py-1 rounded-full text-xs font-medium border border-primary/40 bg-primary/10 text-primary inline-flex items-center gap-1.5">
-                <Puzzle className="w-3 h-3" /> Trade-off: {answers.puzzleTradeoff.map((id) => ({ salary: "Salary", balance: "Balance", growth: "Growth", security: "Security" }[id] || id)).join(" + ")}
-              </span>
             )}
           </div>
         </motion.div>

@@ -13,7 +13,6 @@ export interface QuizAnswers {
   desiredSkill: string;
   linkedinUrl: string;
   githubUrl: string;
-  puzzleTradeoff: string[];
 }
 
 export const defaultAnswers: QuizAnswers = {
@@ -31,5 +30,4 @@ export const defaultAnswers: QuizAnswers = {
   desiredSkill: "",
   linkedinUrl: "",
   githubUrl: "",
-  puzzleTradeoff: [],
 };
