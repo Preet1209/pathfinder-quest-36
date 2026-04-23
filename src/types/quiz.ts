@@ -11,6 +11,8 @@ export interface QuizAnswers {
   stressLevels: { overwhelm: number; detachment: number; excitement: number };
   learningStyle: string;
   desiredSkill: string;
+  linkedinUrl: string;
+  githubUrl: string;
 }
 
 export const defaultAnswers: QuizAnswers = {
@@ -26,4 +28,6 @@ export const defaultAnswers: QuizAnswers = {
   stressLevels: { overwhelm: 50, detachment: 50, excitement: 50 },
   learningStyle: "",
   desiredSkill: "",
+  linkedinUrl: "",
+  githubUrl: "",
 };
