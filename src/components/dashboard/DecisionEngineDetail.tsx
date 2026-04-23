@@ -18,6 +18,9 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
 
   const hasLinkedin = !!answers.linkedinUrl?.trim();
   const hasGithub = !!answers.githubUrl?.trim();
+  const tradeoffLabels: Record<string, string> = { salary: "High Salary", balance: "Work-Life Balance", growth: "Fast Growth", security: "Job Security" };
+  const tradeoff = answers.puzzleTradeoff || [];
+  const hasTradeoff = tradeoff.length === 2;
   const profileSignal = hasLinkedin && hasGithub
     ? "Strong external signal — both LinkedIn and GitHub linked"
     : hasLinkedin
@@ -118,6 +121,22 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
       weight: hasLinkedin || hasGithub ? 60 : 25,
       positive: hasLinkedin || hasGithub,
     },
+    ...(hasTradeoff ? [{
+      factor: "Trade-off Puzzle",
+      signal: `You picked: ${tradeoff.map((t) => tradeoffLabels[t]).join(" + ")}`,
+      impact: (() => {
+        const set = new Set(tradeoff);
+        if (set.has("salary") && set.has("growth")) return "You're optimizing for compensation velocity. Recommendations skew toward high-growth tech, finance, and equity-heavy startup roles.";
+        if (set.has("salary") && set.has("security")) return "You want financial strength without volatility. Established corporates, healthcare, and senior IC tracks rank highest.";
+        if (set.has("salary") && set.has("balance")) return "You want compensation that respects your time. Niche specialist and senior remote roles fit best — avoid early-stage startups.";
+        if (set.has("growth") && set.has("balance")) return "Sustainable acceleration. Look at scale-ups with strong culture, or lead roles at mature product companies.";
+        if (set.has("growth") && set.has("security")) return "You want upward mobility within a stable system. Big-tech, government tech, and consulting partnerships fit this profile.";
+        if (set.has("balance") && set.has("security")) return "You're prioritizing sustainability. Public sector, education, healthcare, and tenured corporate roles rank highest.";
+        return "Your trade-off shapes which careers are filtered into the final ranking.";
+      })(),
+      weight: 90,
+      positive: true,
+    }] : []),
   ];
 
   const whyThisArchetype = [
