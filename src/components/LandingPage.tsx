@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, Brain, Target, Flame, Sparkles, ChevronDown } from "lucide-react";
-import { GameButton } from "@/components/ui/game-button";
 
 interface Props {
   onStart: () => void;
@@ -52,10 +51,18 @@ export const LandingPage = ({ onStart }: Props) => {
             Answer 10 questions in under 5 minutes. Get a personalized career roadmap powered by your values, skills, and ambitions.
           </p>
 
-          <GameButton onClick={onStart} size="lg" variant="gold" className="animate-pulse-glow">
-            Start Your Assessment
-            <ArrowRight className="w-5 h-5" />
-          </GameButton>
+          <motion.button
+            onClick={onStart}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-display font-bold text-lg text-primary-foreground overflow-hidden animate-pulse-glow"
+            style={{ background: "var(--gradient-crimson)" }}
+          >
+            <span className="relative z-10 flex items-center gap-3">
+              Start Your Assessment
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </motion.button>
         </motion.div>
 
         <motion.div

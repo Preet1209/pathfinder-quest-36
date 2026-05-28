@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Cinzel", "Space Grotesk", "serif"],
+        display: ["Space Grotesk", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
       colors: {
@@ -62,14 +62,6 @@ export default {
         purple: {
           DEFAULT: "hsl(var(--purple))",
           light: "hsl(var(--purple-light))",
-        },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
-        },
-        ember: {
-          DEFAULT: "hsl(var(--ember))",
-          light: "hsl(var(--ember-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
