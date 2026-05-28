@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode } from "react";
+import { GameButton } from "@/components/ui/game-button";
 
 interface Props {
   questionNumber: number;
@@ -43,25 +44,15 @@ export const QuestionCard = ({ questionNumber, title, subtitle, children, onNext
 
           <div className="flex justify-between items-center">
             {onBack ? (
-              <button
-                onClick={onBack}
-                className="px-5 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-muted"
-              >
+              <GameButton onClick={onBack} variant="ghost" size="sm">
                 ← Back
-              </button>
+              </GameButton>
             ) : (
               <div />
             )}
-            <motion.button
-              onClick={onNext}
-              disabled={!canProceed}
-              whileHover={canProceed ? { scale: 1.02 } : {}}
-              whileTap={canProceed ? { scale: 0.98 } : {}}
-              className="px-7 py-2.5 rounded-xl text-sm font-display font-semibold text-primary-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all"
-              style={{ background: canProceed ? "var(--gradient-crimson)" : "hsl(var(--muted))" }}
-            >
+            <GameButton onClick={onNext} disabled={!canProceed} variant="gold" size="md">
               {isLast ? "See My Results →" : "Continue →"}
-            </motion.button>
+            </GameButton>
           </div>
         </div>
       </motion.div>
