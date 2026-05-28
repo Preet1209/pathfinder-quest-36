@@ -71,7 +71,7 @@ export const Dashboard = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center">
+        <motion.div id="overview" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center scroll-mt-24">
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-4"
             style={{ background: "linear-gradient(135deg, hsl(230 22% 11% / 0.8), hsl(340 82% 52% / 0.08))" }}>
@@ -119,9 +119,9 @@ export const Dashboard = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {/* Career DNA — clickable */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+          <motion.div id="dna" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             onClick={() => setDnaOpen(true)}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)] cursor-pointer">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(46_65%_52%/0.18)] cursor-pointer scroll-mt-24">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
               style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(265 60% 50% / 0.05), transparent 70%)" }} />
@@ -144,8 +144,8 @@ export const Dashboard = () => {
           </motion.div>
 
           {/* Skill Gap */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)]">
+          <motion.div id="skills" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(46_65%_52%/0.18)] scroll-mt-24">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
@@ -178,9 +178,9 @@ export const Dashboard = () => {
           </motion.div>
 
           {/* Burnout Tracker — clickable */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
+          <motion.div id="burnout" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
             onClick={() => setBurnoutOpen(true)}
-            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)] cursor-pointer">
+            className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(15_76%_51%/0.18)] cursor-pointer scroll-mt-24">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
@@ -214,8 +214,8 @@ export const Dashboard = () => {
           </motion.div>
 
           {/* Hybrid Careers */}
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-            className="card-glass rounded-2xl p-6 md:col-span-2 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
+          <motion.div id="hybrid" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+            className="card-glass rounded-2xl p-6 md:col-span-2 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(46_65%_52%/0.18)] scroll-mt-24">
             <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
@@ -268,7 +268,9 @@ export const Dashboard = () => {
           </motion.div>
 
           {/* Roadmap */}
-          <Roadmap />
+          <div id="roadmap" className="scroll-mt-24 md:col-span-3">
+            <Roadmap />
+          </div>
         </div>
 
         {/* Logical Reasoning */}
