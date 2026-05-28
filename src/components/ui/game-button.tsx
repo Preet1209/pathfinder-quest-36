@@ -75,7 +75,7 @@ export const GameButton = React.forwardRef<HTMLButtonElement, GameButtonProps>(
             }}
           />
         )}
-        <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
+        <span className="relative z-10 inline-flex items-center gap-2">{children as React.ReactNode}</span>
       </Comp>
     );
   },
