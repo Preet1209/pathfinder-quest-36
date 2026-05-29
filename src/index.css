@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,60 +6,71 @@
 
 @layer base {
   :root {
-    --background: 230 25% 7%;
-    --foreground: 220 20% 92%;
+    /* Dark Fantasy RPG palette */
+    --background: 210 25% 8%;          /* Charcoal #0F1419 */
+    --foreground: 228 18% 95%;         /* Off-White #F0F1F5 */
 
-    --card: 230 22% 11%;
-    --card-foreground: 220 20% 92%;
+    --card: 210 22% 12%;
+    --card-foreground: 228 18% 95%;
 
-    --popover: 230 22% 11%;
-    --popover-foreground: 220 20% 92%;
+    --popover: 210 22% 12%;
+    --popover-foreground: 228 18% 95%;
 
-    --primary: 340 82% 52%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 46 65% 52%;             /* Rich Gold #D4AF37 */
+    --primary-foreground: 232 50% 20%; /* Deep Indigo text on gold */
 
-    --secondary: 265 60% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 258 51% 52%;          /* Mystical Purple #6B46C1 */
+    --secondary-foreground: 228 18% 95%;
 
-    --muted: 230 20% 15%;
-    --muted-foreground: 220 15% 55%;
+    --muted: 210 22% 16%;
+    --muted-foreground: 220 16% 71%;   /* Cool Gray #A8B0C0 */
 
-    --accent: 340 82% 52%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 258 51% 52%;             /* Mystical Purple */
+    --accent-foreground: 228 18% 95%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 6 78% 57%;          /* Ember Red #E74C3C */
+    --destructive-foreground: 228 18% 95%;
 
-    --border: 230 18% 18%;
-    --input: 230 18% 18%;
-    --ring: 340 82% 52%;
+    --success: 145 63% 42%;            /* Forest Green #27AE60 */
+    --success-foreground: 228 18% 95%;
+
+    --indigo-deep: 232 50% 20%;        /* #1A1F4B */
+    --gold: 46 65% 52%;
+    --gold-light: 46 70% 65%;
+    --slate: 210 29% 24%;              /* Borders #2C3E50 */
+
+    --border: 210 29% 24%;
+    --input: 210 29% 24%;
+    --ring: 46 65% 52%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 230 25% 9%;
-    --sidebar-foreground: 220 20% 92%;
-    --sidebar-primary: 340 82% 52%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 230 20% 15%;
-    --sidebar-accent-foreground: 220 20% 92%;
-    --sidebar-border: 230 18% 18%;
-    --sidebar-ring: 340 82% 52%;
+    --sidebar-background: 210 22% 10%;
+    --sidebar-foreground: 228 18% 95%;
+    --sidebar-primary: 46 65% 52%;
+    --sidebar-primary-foreground: 232 50% 20%;
+    --sidebar-accent: 210 22% 16%;
+    --sidebar-accent-foreground: 228 18% 95%;
+    --sidebar-border: 210 29% 24%;
+    --sidebar-ring: 46 65% 52%;
 
     /* Custom tokens */
-    --navy: 230 40% 16%;
-    --navy-deep: 230 25% 7%;
-    --crimson: 340 82% 52%;
-    --crimson-light: 340 82% 65%;
-    --crimson-glow: 340 82% 52%;
-    --purple: 265 60% 50%;
-    --purple-light: 265 60% 65%;
-    --purple-glow: 265 60% 50%;
+    --navy: 232 50% 20%;
+    --navy-deep: 210 25% 8%;
+    --crimson: 46 65% 52%;        /* aliased to Gold for legacy classes */
+    --crimson-light: 46 70% 65%;
+    --crimson-glow: 46 65% 52%;
+    --purple: 258 51% 52%;
+    --purple-light: 258 55% 65%;
+    --purple-glow: 258 51% 52%;
 
-    --font-display: 'Space Grotesk', sans-serif;
+    --font-display: 'Cinzel', 'Space Grotesk', serif;
     --font-body: 'Inter', sans-serif;
 
-    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%), hsl(258 30% 14%), hsl(46 30% 12%));
-    --gradient-crimson: linear-gradient(135deg, hsl(46 65% 52%), hsl(258 51% 52%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%), hsl(232 50% 20%), hsl(258 51% 30%));
+    --gradient-crimson: linear-gradient(135deg, hsl(46 70% 58%), hsl(46 65% 45%));
+    --gradient-indigo-purple: linear-gradient(135deg, hsl(232 50% 20%), hsl(258 51% 52%));
+    --gradient-gold: linear-gradient(135deg, hsl(46 80% 65%), hsl(46 65% 45%));
     --gradient-card: linear-gradient(135deg, hsl(210 22% 12%), hsl(210 22% 15%));
     --gradient-glow: radial-gradient(circle at 50% 0%, hsl(46 65% 52% / 0.15), transparent 60%);
 
@@ -67,6 +78,7 @@
     --shadow-elevated: 0 12px 40px -8px hsl(0 0% 0% / 0.5);
     --shadow-glow-crimson: 0 0 30px hsl(46 65% 52% / 0.3);
     --shadow-glow-purple: 0 0 30px hsl(258 51% 52% / 0.3);
+    --shadow-glow-gold: 0 0 24px hsl(46 65% 52% / 0.45), 0 0 60px hsl(46 65% 52% / 0.18);
   }
 }
 
@@ -89,7 +101,7 @@
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-crimson);
+    background-image: linear-gradient(135deg, hsl(46 80% 70%), hsl(46 65% 50%));
   }
 
   .border-glow {
@@ -105,5 +117,18 @@
 
   .glow-dot {
     box-shadow: 0 0 8px hsl(46 65% 52% / 0.6), 0 0 20px hsl(46 65% 52% / 0.3);
+  }
+
+  .text-gold { color: hsl(var(--gold)); }
+  .text-indigo-deep { color: hsl(var(--indigo-deep)); }
+
+  @keyframes shimmer-gold {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer-skeleton {
+    background: linear-gradient(90deg, hsl(210 29% 24%) 0%, hsl(46 65% 52% / 0.25) 50%, hsl(210 29% 24%) 100%);
+    background-size: 200% 100%;
+    animation: shimmer-gold 2.2s linear infinite;
   }
 }
