@@ -27,7 +27,7 @@ export const Qualification = () => {
               ? "border-primary/50 border-glow"
               : "border-border bg-muted/20 hover:bg-muted/40 hover:border-border"
           }`}
-          style={answers.qualification === option.value ? { background: "linear-gradient(135deg, hsl(340 82% 52% / 0.1), hsl(265 60% 50% / 0.05))" } : {}}
+          style={answers.qualification === option.value ? { background: "linear-gradient(135deg, hsl(46 65% 52% / 0.1), hsl(258 51% 52% / 0.05))" } : {}}
         >
           <span className="text-2xl">{option.emoji}</span>
           <div>

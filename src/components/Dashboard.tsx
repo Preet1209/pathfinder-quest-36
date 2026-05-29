@@ -59,30 +59,30 @@ export const Dashboard = () => {
       {/* Animated background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.15, 0.08] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[5%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[140px]" style={{ background: "hsl(340 82% 52%)" }} />
+          className="absolute top-[5%] left-[-10%] w-[600px] h-[600px] rounded-full blur-[140px]" style={{ background: "hsl(46 65% 52%)" }} />
         <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.12, 0.06] }} transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[5%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px]" style={{ background: "hsl(265 60% 50%)" }} />
+          className="absolute bottom-[5%] right-[-10%] w-[500px] h-[500px] rounded-full blur-[120px]" style={{ background: "hsl(258 51% 52%)" }} />
         <motion.div animate={{ scale: [1, 1.1, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-          className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: "hsl(230 60% 40%)" }} />
+          className="absolute top-[50%] left-[40%] w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: "hsl(232 50% 30%)" }} />
       </div>
 
       <div className="absolute inset-0 pointer-events-none opacity-[0.02]"
-        style={{ backgroundImage: "linear-gradient(hsl(220 20% 92%) 1px, transparent 1px), linear-gradient(90deg, hsl(220 20% 92%) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
+        style={{ backgroundImage: "linear-gradient(hsl(228 18% 95%) 1px, transparent 1px), linear-gradient(90deg, hsl(228 18% 95%) 1px, transparent 1px)", backgroundSize: "50px 50px" }} />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10 text-center">
           <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-4"
-            style={{ background: "linear-gradient(135deg, hsl(230 22% 11% / 0.8), hsl(340 82% 52% / 0.08))" }}>
+            style={{ background: "linear-gradient(135deg, hsl(210 22% 12% / 0.8), hsl(46 65% 52% / 0.08))" }}>
             <Shield className="w-3 h-3 text-primary" />
             <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">Analysis Complete</span>
           </motion.div>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-2">
-            You're a <span className="text-gradient">{archetype}</span>
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-2 tracking-wide">
+            Hail, <span className="text-gradient">{archetype}</span>
           </h1>
           <p className="text-muted-foreground max-w-lg mx-auto font-body">
-            Click any card below to explore your personalized insights in detail.
+            Your map is drawn. Tap any sigil below to unfurl its full prophecy.
           </p>
           <div className="flex items-center justify-center gap-3 mt-3 flex-wrap">
             {answers.ageRange && (
@@ -122,11 +122,11 @@ export const Dashboard = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             onClick={() => setDnaOpen(true)}
             className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)] cursor-pointer">
-            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(258 51% 52% / 0.5), transparent)" }} />
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-              style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(265 60% 50% / 0.05), transparent 70%)" }} />
+              style={{ background: "radial-gradient(ellipse at 50% 0%, hsl(258 51% 52% / 0.05), transparent 70%)" }} />
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(258 51% 52% / 0.2)" }}>
                 <Brain className="w-4 h-4 text-purple" />
               </div>
               <h3 className="font-display font-bold text-foreground">Career DNA</h3>
@@ -135,7 +135,7 @@ export const Dashboard = () => {
             <div className="flex flex-wrap gap-2 mb-3">
               {dna.map((t, i) => (
                 <span key={t} className="px-3 py-1.5 rounded-full text-xs font-medium text-foreground border border-border"
-                  style={{ background: "linear-gradient(135deg, hsl(230 22% 13%), hsl(265 30% 18%))" }}>{t}</span>
+                  style={{ background: "linear-gradient(135deg, hsl(210 22% 14%), hsl(258 30% 20%))" }}>{t}</span>
               ))}
             </div>
             <p className="text-xs text-muted-foreground">
@@ -146,9 +146,9 @@ export const Dashboard = () => {
           {/* Skill Gap */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)]">
-            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(46 65% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(46 65% 52% / 0.2)" }}>
                 <Target className="w-4 h-4 text-crimson" />
               </div>
               <h3 className="font-display font-bold text-foreground">Skill Gap Simulator</h3>
@@ -181,9 +181,9 @@ export const Dashboard = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
             onClick={() => setBurnoutOpen(true)}
             className="card-glass rounded-2xl p-6 relative overflow-hidden group hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)] cursor-pointer">
-            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(46 65% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(46 65% 52% / 0.2)" }}>
                 <Flame className="w-4 h-4 text-crimson" />
               </div>
               <h3 className="font-display font-bold text-foreground">Burnout Tracker</h3>
@@ -216,9 +216,9 @@ export const Dashboard = () => {
           {/* Hybrid Careers */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
             className="card-glass rounded-2xl p-6 md:col-span-2 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
-            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(258 51% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(258 51% 52% / 0.2)" }}>
                 <Sparkles className="w-4 h-4 text-purple" />
               </div>
               <h3 className="font-display font-bold text-foreground">Hybrid Career Suggestions</h3>
@@ -245,9 +245,9 @@ export const Dashboard = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
             onClick={() => setDecisionOpen(true)}
             className="card-glass rounded-2xl p-6 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(340_82%_52%/0.1)] cursor-pointer group">
-            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.5), transparent)" }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(46 65% 52% / 0.5), transparent)" }} />
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(340 82% 52% / 0.2)" }}>
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(46 65% 52% / 0.2)" }}>
                 <Zap className="w-4 h-4 text-crimson" />
               </div>
               <h3 className="font-display font-bold text-foreground">Decision Engine</h3>
@@ -260,7 +260,7 @@ export const Dashboard = () => {
                 <span className="text-foreground/80">Your {dna[0].toLowerCase()} style aligns with {answers.stabilityVsFlexibility === "stability" ? "clear progression paths" : "dynamic, varied roles"}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 shrink-0" style={{ boxShadow: "0 0 8px hsl(265 60% 50% / 0.6)" }} />
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary mt-1.5 shrink-0" style={{ boxShadow: "0 0 8px hsl(258 51% 52% / 0.6)" }} />
                 <span className="text-foreground/80">Core value: <span className="text-primary font-medium">{answers.valuesRanking[0]}</span></span>
               </li>
             </ul>
@@ -274,9 +274,9 @@ export const Dashboard = () => {
         {/* Logical Reasoning */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }}
           className="card-glass rounded-2xl p-6 mt-5 relative overflow-hidden hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_40px_hsl(265_60%_50%/0.1)]">
-          <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(265 60% 50% / 0.5), transparent)" }} />
+          <div className="absolute top-0 left-0 w-full h-px" style={{ background: "linear-gradient(90deg, transparent, hsl(258 51% 52% / 0.5), transparent)" }} />
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(265 60% 50% / 0.2)" }}>
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "hsl(258 51% 52% / 0.2)" }}>
               <Puzzle className="w-4 h-4 text-purple" />
             </div>
             <h3 className="font-display font-bold text-foreground">Logical Reasoning</h3>

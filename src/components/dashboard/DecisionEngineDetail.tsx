@@ -157,7 +157,7 @@ export const DecisionEngineDetail = ({ open, onOpenChange, dna, archetype }: Pro
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="p-5 rounded-xl border border-border relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, hsl(340 82% 52% / 0.08), hsl(230 22% 13%))" }}
+          style={{ background: "linear-gradient(135deg, hsl(46 65% 52% / 0.08), hsl(210 22% 14%))" }}
         >
           <div className="flex items-center gap-2 mb-3">
             <Lightbulb className="w-4 h-4 text-primary" />

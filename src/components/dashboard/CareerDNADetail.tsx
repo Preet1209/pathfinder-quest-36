@@ -108,9 +108,9 @@ export const CareerDNADetail = ({ open, onOpenChange, dna, archetype }: Props) =
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="p-5 rounded-xl border border-border relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, hsl(265 60% 50% / 0.1), hsl(340 82% 52% / 0.05))" }}
+          style={{ background: "linear-gradient(135deg, hsl(258 51% 52% / 0.1), hsl(46 65% 52% / 0.05))" }}
         >
-          <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-[60px] opacity-20" style={{ background: "hsl(265 60% 50%)" }} />
+          <div className="absolute top-0 right-0 w-32 h-32 rounded-full blur-[60px] opacity-20" style={{ background: "hsl(258 51% 52%)" }} />
           <p className="text-xs uppercase tracking-widest text-muted-foreground font-display mb-1">Your Archetype</p>
           <h2 className="text-2xl font-display font-bold text-gradient mb-1">{archetype}</h2>
           <p className="text-sm text-primary italic mb-3">"{archetypeInfo.tagline}"</p>
@@ -209,7 +209,7 @@ export const CareerDNADetail = ({ open, onOpenChange, dna, archetype }: Props) =
         {/* Profile Signals */}
         {(answers.linkedinUrl || answers.githubUrl) && (
           <div className="p-4 rounded-xl border border-secondary/30"
-               style={{ background: "linear-gradient(135deg, hsl(265 60% 50% / 0.08), hsl(230 22% 13%))" }}>
+               style={{ background: "linear-gradient(135deg, hsl(258 51% 52% / 0.08), hsl(210 22% 14%))" }}>
             <p className="text-xs uppercase tracking-wider text-secondary mb-2 font-display">Linked Profiles Enriching This Profile</p>
             <div className="flex flex-wrap gap-2">
               {answers.linkedinUrl && (

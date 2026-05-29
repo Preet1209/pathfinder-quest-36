@@ -135,8 +135,8 @@ export const OnboardingQuiz = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full opacity-10 blur-[120px]" style={{ background: "hsl(340 82% 52%)" }} />
-        <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]" style={{ background: "hsl(265 60% 50%)" }} />
+        <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full opacity-10 blur-[120px]" style={{ background: "hsl(46 65% 52%)" }} />
+        <div className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]" style={{ background: "hsl(258 51% 52%)" }} />
       </div>
 
       <div className="relative z-10 w-full">
