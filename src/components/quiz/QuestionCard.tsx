@@ -60,7 +60,7 @@ export const QuestionCard = ({ questionNumber, title, subtitle, children, onNext
               className="px-7 py-2.5 rounded-xl text-sm font-display font-semibold text-primary-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               style={{ background: canProceed ? "var(--gradient-crimson)" : "hsl(var(--muted))" }}
             >
-              {isLast ? "See My Results →" : "Continue →"}
+              {isLast ? "Reveal My Map →" : "Onward →"}
             </motion.button>
           </div>
         </div>

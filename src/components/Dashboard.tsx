@@ -78,11 +78,11 @@ export const Dashboard = () => {
             <Shield className="w-3 h-3 text-primary" />
             <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">Analysis Complete</span>
           </motion.div>
-          <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-2">
-            You're a <span className="text-gradient">{archetype}</span>
+          <h1 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-2 tracking-wide">
+            Hail, <span className="text-gradient">{archetype}</span>
           </h1>
           <p className="text-muted-foreground max-w-lg mx-auto font-body">
-            Click any card below to explore your personalized insights in detail.
+            Your map is drawn. Tap any sigil below to unfurl its full prophecy.
           </p>
           <div className="flex items-center justify-center gap-3 mt-3 flex-wrap">
             {answers.ageRange && (
