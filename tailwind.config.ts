@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
+        display: ["Cinzel", "Space Grotesk", "serif"],
         body: ["Inter", "sans-serif"],
       },
       colors: {
@@ -34,6 +34,20 @@ export default {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+        },
+        indigo: {
+          deep: "hsl(var(--indigo-deep))",
+        },
+        slate: {
+          DEFAULT: "hsl(var(--slate))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
