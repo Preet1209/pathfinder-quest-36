@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Brain, Target, Flame, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowRight, Zap, Brain, Target, Flame, Sparkles, ChevronDown, Swords } from "lucide-react";
 
 interface Props {
   onStart: () => void;
 }
 
 const features = [
-  { icon: Target, label: "Skill Gap Simulator", desc: "Find exactly what skills to build next", delay: 0.3 },
-  { icon: Brain, label: "Career DNA Profiling", desc: "Discover your unique career personality", delay: 0.4 },
-  { icon: Zap, label: "Decision Engine", desc: "Understand why careers fit you", delay: 0.5 },
-  { icon: Sparkles, label: "Hybrid Career Paths", desc: "Explore interdisciplinary opportunities", delay: 0.6 },
-  { icon: Flame, label: "Burnout Tracker", desc: "Stay productive without burning out", delay: 0.7 },
+  { icon: Target, label: "Skill Forge", desc: "Reveal the abilities you must master next", delay: 0.3 },
+  { icon: Brain, label: "Career DNA", desc: "Uncover the archetype that defines your path", delay: 0.4 },
+  { icon: Zap, label: "Decision Engine", desc: "See the runes behind every recommendation", delay: 0.5 },
+  { icon: Sparkles, label: "Hybrid Quests", desc: "Chart rare cross-discipline trajectories", delay: 0.6 },
+  { icon: Flame, label: "Burnout Ward", desc: "Guard your energy across the long journey", delay: 0.7 },
 ];
 
 export const LandingPage = ({ onStart }: Props) => {
@@ -37,29 +37,29 @@ export const LandingPage = ({ onStart }: Props) => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-8"
             style={{ background: "linear-gradient(135deg, hsl(210 22% 12% / 0.8), hsl(46 65% 52% / 0.1))" }}
           >
-            <span className="w-2 h-2 rounded-full bg-primary glow-dot" />
-            <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">Career Intelligence Platform</span>
+            <Swords className="w-3 h-3 text-primary" />
+            <span className="text-xs font-display font-medium text-muted-foreground tracking-[0.25em] uppercase">A Career Intelligence Saga</span>
           </motion.div>
 
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-display font-bold leading-[1.1] mb-6">
-            <span className="text-foreground">Your career path,</span>
+            <span className="text-foreground">Embark on your</span>
             <br />
-            <span className="text-gradient">decoded.</span>
+            <span className="text-gradient">next adventure.</span>
           </h1>
 
           <p className="text-lg text-muted-foreground max-w-lg mx-auto mb-12 font-body leading-relaxed">
-            Answer 10 questions in under 5 minutes. Get a personalized career roadmap powered by your values, skills, and ambitions.
+            Fifteen questions. Five minutes. One legendary map of your values, skills, and future quests — drawn just for you.
           </p>
 
           <motion.button
             onClick={onStart}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-display font-bold text-lg text-primary-foreground overflow-hidden animate-pulse-glow"
-            style={{ background: "var(--gradient-crimson)" }}
+            className="group relative inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-display font-bold text-lg text-primary-foreground overflow-hidden animate-pulse-glow tracking-wider"
+            style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-glow-gold)" }}
           >
             <span className="relative z-10 flex items-center gap-3">
-              Start Your Assessment
+              Begin the Quest
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </span>
           </motion.button>
@@ -81,9 +81,9 @@ export const LandingPage = ({ onStart }: Props) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-center text-xs font-display font-semibold text-muted-foreground tracking-widest uppercase mb-8"
+          className="text-center text-xs font-display font-semibold text-gold tracking-[0.3em] uppercase mb-8"
         >
-          What you'll unlock
+          ✦  Treasures You Will Uncover  ✦
         </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -96,9 +96,12 @@ export const LandingPage = ({ onStart }: Props) => {
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="card-glass rounded-2xl p-5 text-center group cursor-default"
             >
-              <div className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                style={{ background: i % 2 === 0 ? "hsl(46 65% 52% / 0.15)" : "hsl(258 51% 52% / 0.15)" }}>
-                <f.icon className={`w-6 h-6 ${i % 2 === 0 ? "text-crimson" : "text-purple"}`} />
+              <div className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center border"
+                style={{
+                  background: i % 2 === 0 ? "hsl(46 65% 52% / 0.12)" : "hsl(258 51% 52% / 0.15)",
+                  borderColor: i % 2 === 0 ? "hsl(46 65% 52% / 0.35)" : "hsl(258 51% 52% / 0.35)",
+                }}>
+                <f.icon className={`w-6 h-6 ${i % 2 === 0 ? "text-gold" : "text-purple"}`} />
               </div>
               <p className="font-display font-semibold text-foreground text-sm mb-1">{f.label}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{f.desc}</p>
