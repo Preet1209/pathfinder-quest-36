@@ -122,11 +122,11 @@ export const Roadmap = () => {
       className="card-glass rounded-2xl p-6 md:col-span-2 lg:col-span-3 relative overflow-hidden hover:border-primary/30 transition-colors"
     >
       <div className="absolute top-0 left-0 w-full h-px"
-        style={{ background: "linear-gradient(90deg, transparent, hsl(340 82% 52% / 0.6), hsl(265 60% 50% / 0.6), transparent)" }} />
+        style={{ background: "linear-gradient(90deg, transparent, hsl(46 65% 52% / 0.6), hsl(258 51% 52% / 0.6), transparent)" }} />
 
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ background: "linear-gradient(135deg, hsl(340 82% 52% / 0.2), hsl(265 60% 50% / 0.2))" }}>
+          style={{ background: "linear-gradient(135deg, hsl(46 65% 52% / 0.2), hsl(258 51% 52% / 0.2))" }}>
           <Briefcase className="w-5 h-5 text-primary" />
         </div>
         <div>
@@ -156,7 +156,7 @@ export const Roadmap = () => {
                 <div className="shrink-0 relative z-10">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     isCurrent ? "bg-gradient-to-br from-primary to-secondary" : "bg-muted/40 border border-border"
-                  }`} style={isCurrent ? { boxShadow: "0 0 20px hsl(340 82% 52% / 0.3)" } : {}}>
+                  }`} style={isCurrent ? { boxShadow: "0 0 20px hsl(46 65% 52% / 0.3)" } : {}}>
                     <StepIcon className={`w-5 h-5 ${isCurrent ? "text-primary-foreground" : "text-muted-foreground"}`} />
                   </div>
                 </div>

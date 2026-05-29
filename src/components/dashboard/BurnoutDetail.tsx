@@ -98,7 +98,7 @@ export const BurnoutDetail = ({ open, onOpenChange }: Props) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           className="p-5 rounded-xl border border-border text-center relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, hsl(340 82% 52% / 0.05), hsl(230 22% 13%))" }}
+          style={{ background: "linear-gradient(135deg, hsl(46 65% 52% / 0.05), hsl(210 22% 14%))" }}
         >
           <p className="text-xs uppercase tracking-widest text-muted-foreground font-display mb-3">Overall Burnout Risk</p>
           <div className="relative w-32 h-32 mx-auto mb-3">
@@ -106,7 +106,7 @@ export const BurnoutDetail = ({ open, onOpenChange }: Props) => {
               <circle cx="60" cy="60" r="52" fill="none" stroke="hsl(220 15% 20%)" strokeWidth="8" />
               <motion.circle
                 cx="60" cy="60" r="52" fill="none"
-                stroke={overallRisk.level === "High" ? "hsl(340 82% 52%)" : overallRisk.level === "Moderate" ? "hsl(265 60% 50%)" : "hsl(150 60% 40%)"}
+                stroke={overallRisk.level === "High" ? "hsl(46 65% 52%)" : overallRisk.level === "Moderate" ? "hsl(258 51% 52%)" : "hsl(150 60% 40%)"}
                 strokeWidth="8" strokeLinecap="round"
                 strokeDasharray={`${overallRisk.percentage * 3.27} 327`}
                 initial={{ strokeDasharray: "0 327" }}
@@ -147,7 +147,7 @@ export const BurnoutDetail = ({ open, onOpenChange }: Props) => {
                     style={{
                       background: dim.key === "excitement"
                         ? `linear-gradient(90deg, hsl(0 70% 50%), hsl(150 60% 40%))`
-                        : `linear-gradient(90deg, hsl(150 60% 40%), hsl(340 82% 52%))`,
+                        : `linear-gradient(90deg, hsl(150 60% 40%), hsl(46 65% 52%))`,
                     }}
                     initial={{ width: 0 }}
                     animate={{ width: `${dim.value}%` }}

@@ -58,15 +58,15 @@
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Inter', sans-serif;
 
-    --gradient-hero: linear-gradient(135deg, hsl(230 25% 7%), hsl(265 30% 12%), hsl(340 30% 10%));
-    --gradient-crimson: linear-gradient(135deg, hsl(340 82% 52%), hsl(265 60% 50%));
-    --gradient-card: linear-gradient(135deg, hsl(230 22% 11%), hsl(230 25% 14%));
-    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(340 82% 52% / 0.15), transparent 60%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 25% 8%), hsl(258 30% 14%), hsl(46 30% 12%));
+    --gradient-crimson: linear-gradient(135deg, hsl(46 65% 52%), hsl(258 51% 52%));
+    --gradient-card: linear-gradient(135deg, hsl(210 22% 12%), hsl(210 22% 15%));
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(46 65% 52% / 0.15), transparent 60%);
 
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.4);
     --shadow-elevated: 0 12px 40px -8px hsl(0 0% 0% / 0.5);
-    --shadow-glow-crimson: 0 0 30px hsl(340 82% 52% / 0.3);
-    --shadow-glow-purple: 0 0 30px hsl(265 60% 50% / 0.3);
+    --shadow-glow-crimson: 0 0 30px hsl(46 65% 52% / 0.3);
+    --shadow-glow-purple: 0 0 30px hsl(258 51% 52% / 0.3);
   }
 }
 
@@ -93,17 +93,17 @@
   }
 
   .border-glow {
-    border-color: hsl(340 82% 52% / 0.3);
-    box-shadow: 0 0 15px hsl(340 82% 52% / 0.1), inset 0 0 15px hsl(340 82% 52% / 0.05);
+    border-color: hsl(46 65% 52% / 0.3);
+    box-shadow: 0 0 15px hsl(46 65% 52% / 0.1), inset 0 0 15px hsl(46 65% 52% / 0.05);
   }
 
   .card-glass {
-    background: linear-gradient(135deg, hsl(230 22% 11% / 0.8), hsl(230 25% 14% / 0.6));
+    background: linear-gradient(135deg, hsl(210 22% 12% / 0.8), hsl(210 22% 15% / 0.6));
     backdrop-filter: blur(12px);
-    border: 1px solid hsl(230 18% 22%);
+    border: 1px solid hsl(210 29% 28%);
   }
 
   .glow-dot {
-    box-shadow: 0 0 8px hsl(340 82% 52% / 0.6), 0 0 20px hsl(340 82% 52% / 0.3);
+    box-shadow: 0 0 8px hsl(46 65% 52% / 0.6), 0 0 20px hsl(46 65% 52% / 0.3);
   }
 }

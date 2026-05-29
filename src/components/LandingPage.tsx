@@ -18,14 +18,14 @@ export const LandingPage = ({ onStart }: Props) => {
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Ambient background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style={{ background: "hsl(340 82% 52%)" }} />
-        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full opacity-15 blur-[120px]" style={{ background: "hsl(265 60% 50%)" }} />
+        <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full opacity-20 blur-[120px]" style={{ background: "hsl(46 65% 52%)" }} />
+        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full opacity-15 blur-[120px]" style={{ background: "hsl(258 51% 52%)" }} />
         <div className="absolute bottom-[-10%] left-[30%] w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]" style={{ background: "hsl(230 40% 30%)" }} />
       </div>
 
       {/* Grid overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{ backgroundImage: "linear-gradient(hsl(220 20% 92%) 1px, transparent 1px), linear-gradient(90deg, hsl(220 20% 92%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        style={{ backgroundImage: "linear-gradient(hsl(228 18% 95%) 1px, transparent 1px), linear-gradient(90deg, hsl(228 18% 95%) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
       {/* Hero */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 pt-24 pb-12 text-center">
@@ -35,7 +35,7 @@ export const LandingPage = ({ onStart }: Props) => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border mb-8"
-            style={{ background: "linear-gradient(135deg, hsl(230 22% 11% / 0.8), hsl(340 82% 52% / 0.1))" }}
+            style={{ background: "linear-gradient(135deg, hsl(210 22% 12% / 0.8), hsl(46 65% 52% / 0.1))" }}
           >
             <span className="w-2 h-2 rounded-full bg-primary glow-dot" />
             <span className="text-xs font-display font-medium text-muted-foreground tracking-wider uppercase">Career Intelligence Platform</span>
@@ -97,7 +97,7 @@ export const LandingPage = ({ onStart }: Props) => {
               className="card-glass rounded-2xl p-5 text-center group cursor-default"
             >
               <div className="w-12 h-12 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                style={{ background: i % 2 === 0 ? "hsl(340 82% 52% / 0.15)" : "hsl(265 60% 50% / 0.15)" }}>
+                style={{ background: i % 2 === 0 ? "hsl(46 65% 52% / 0.15)" : "hsl(258 51% 52% / 0.15)" }}>
                 <f.icon className={`w-6 h-6 ${i % 2 === 0 ? "text-crimson" : "text-purple"}`} />
               </div>
               <p className="font-display font-semibold text-foreground text-sm mb-1">{f.label}</p>

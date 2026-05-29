@@ -126,7 +126,7 @@ export const ValuesRanking = () => {
                   layoutId={`glow-${v.id}`}
                   className="absolute inset-0 pointer-events-none"
                   style={{
-                    background: "radial-gradient(ellipse at 0% 50%, hsl(340 82% 52% / 0.08), transparent 70%)",
+                    background: "radial-gradient(ellipse at 0% 50%, hsl(46 65% 52% / 0.08), transparent 70%)",
                   }}
                 />
               )}
@@ -138,7 +138,7 @@ export const ValuesRanking = () => {
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
                     className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-display text-primary-foreground bg-gradient-to-br ${rankColors[idx]}`}
-                    style={{ boxShadow: "0 0 20px hsl(340 82% 52% / 0.4)" }}
+                    style={{ boxShadow: "0 0 20px hsl(46 65% 52% / 0.4)" }}
                   >
                     {idx + 1}
                   </motion.div>
